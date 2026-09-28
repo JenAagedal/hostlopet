@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Høstløpet 2026 påmelding</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Høstløpet 2026</h1>
+    <p class="info">Lørdag 17. oktober kl. 11.00 ved idrettsanlegget. Du kan velge mellom 5, 10 eller 15 km. Møt gjerne opp én time før start.</p>
+
+    <!-- Påmeldingsskjema -->
+    <form id="skjema" novalidate>
+      <h2>Meld deg på løpet ved å fylle ut skjemaet</h2>
+
+      <label for="km">Velg distanse</label>
+      <select id="km">
+        <option value="">Velg distanse</option>
+        <option value="5">5 km</option>
+        <option value="10">10 km</option>
+        <option value="15">15 km</option>
+      </select>
+      <p class="feil" id="feil-km" aria-live="polite"></p>
+
+      <label for="fornavn">Fornavn</label>
+      <input id="fornavn" autocomplete="given-name">
+      <p class="feil" id="feil-fornavn" aria-live="polite"></p>
+
+      <label for="etternavn">Etternavn</label>
+      <input id="etternavn" autocomplete="family-name">
+      <p class="feil" id="feil-etternavn" aria-live="polite"></p>
+
+      <label for="epost">E-post</label>
+      <input id="epost" type="email" autocomplete="email">
+      <p class="feil" id="feil-epost" aria-live="polite"></p>
+
+      <p class="info">Vi lagrer bare navn og e-post. E-posten vises ikke for andre.</p>
+      <button type="submit">Meld meg på!</button>
+    </form>
+
+    <!-- Vises når påmeldingen er lagret -->
+    <section id="kvittering" hidden>
+      <p>Du er nå påmeldt. Startnummeret ditt er:</p>
+      <p class="startnummer" id="startnummer"></p>
+      <button type="button" id="ny">Meld på en til</button>
+    </section>
+
+    <!-- Hvem er påmeldt -->
+       
+    <h2>Påmeldte</h2>
+    <ul id="liste"></ul>
+
+    <button type="button" id="slett" class="liten">Slett alle mine påmeldinger</button>
+  </main>
+  <!-- Rekkefølgen er viktig her: logic.js må lastes før script.js, som bruker funksjonene -->
+  <script src="logic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
